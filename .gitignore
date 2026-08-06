@@ -1,0 +1,5 @@
+# krita files
+*.kra
+
+# backup files by krita
+*.*~
