@@ -1,0 +1,22 @@
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const start = document.getElementById("loop-back-start")!;
+    const trigger = document.getElementById("loop-back-trigger")!;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const startTop = start.getBoundingClientRect().top;
+            const triggerTop = trigger.getBoundingClientRect().top;
+
+            const top = (startTop - triggerTop) / 2;
+            window.scrollBy({ behavior: "instant", top });
+          }
+        }
+      },
+      { threshold: 0 },
+    );
+    observer.observe(trigger);
+  });
+</script>
